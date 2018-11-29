@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>CifradoCesar.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">cesarMaven</a> &gt; <a href="index.source.html" class="el_package">edu.mondragon.junit.cesar</a> &gt; <span class="el_source">CifradoCesar.java</span></div><h1>CifradoCesar.java</h1><pre class="source lang-java linenums">package edu.mondragon.junit.cesar;
+//AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+//BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+//CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+import edu.mondragon.junit.cesar.CifradoCesar;
+
+public class CifradoCesar {
+	private String cadena;
+
+<span class="nc" id="L10">	public CifradoCesar(String cadena) {</span>
+<span class="nc" id="L11">		this.cadena = cadena;</span>
+<span class="nc" id="L12">	}</span>
+
+	public String cifrarCadena() {
+<span class="nc" id="L15">		return traducirCadena(&quot;cifrar&quot;);</span>
+	}
+
+	public String descifrarCadena() {
+<span class="nc" id="L19">		return traducirCadena(&quot;descifrar&quot;);</span>
+	}
+
+	private String traducirCadena(String operacion) {
+<span class="nc" id="L23">		String cadenaCifrada = &quot;&quot;;</span>
+<span class="nc bnc" id="L24" title="All 2 branches missed.">		for (int i = 0; i &lt; cadena.length(); i++) {</span>
+<span class="nc" id="L25">			char caracter = cadena.toLowerCase().charAt(i);</span>
+<span class="nc bnc" id="L26" title="All 4 branches missed.">			if (caracter &gt;= 97 &amp;&amp; caracter &lt;= 122) {</span>
+<span class="nc bnc" id="L27" title="All 2 branches missed.">				if (operacion.equals(&quot;cifrar&quot;)) {</span>
+<span class="nc bnc" id="L28" title="All 2 branches missed.">					if (caracter &gt;= 'x') {</span>
+<span class="nc" id="L29">						caracter = (char) ('a' + ('z' - caracter));</span>
+<span class="nc" id="L30">					} else {</span>
+<span class="nc" id="L31">						caracter += 3;</span>
+					}
+<span class="nc" id="L33">					cadenaCifrada += (char) (caracter);</span>
+<span class="nc" id="L34">				} else {</span>
+<span class="nc bnc" id="L35" title="All 2 branches missed.">					if (caracter &lt;= 'c') {</span>
+<span class="nc" id="L36">						caracter = (char) ('z' - (caracter - 'a'));</span>
+<span class="nc" id="L37">					} else {</span>
+<span class="nc" id="L38">						caracter -= 3;</span>
+					}
+<span class="nc" id="L40">					cadenaCifrada += (char) (caracter);</span>
+				}
+
+<span class="nc" id="L43">			} else {</span>
+<span class="nc" id="L44">				cadenaCifrada += caracter;</span>
+			}
+		}
+
+<span class="nc" id="L48">		cadena = cadenaCifrada;</span>
+<span class="nc" id="L49">		return cadena;</span>
+	}
+
+	public static void main(String[] args) {
+<span class="nc" id="L53">		CifradoCesar cc = new CifradoCesar(</span>
+<span class="nc" id="L54">				&quot;Todo lo que se preguntaba eran las mismas respuestas que buscamos el resto de nosotros. �De d�nde vengo? �A d�nde voy? �Cu�nto tiempo tengo? Todo lo que pude hacer fue sentarme y ver como mor�a.&quot;);</span>
+
+<span class="nc" id="L56">		System.out.println(cc.cifrarCadena());</span>
+<span class="nc" id="L57">		System.out.println(cc.descifrarCadena());</span>
+<span class="nc" id="L58">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>
